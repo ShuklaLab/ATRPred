@@ -1,0 +1,25 @@
+Package: ATRPred
+Title: Anti-TNF Treatment Response Predictor
+Version: 1.0.0.0
+Authors@R: 
+    person(given = "Bodhayan",
+           family = "Prasad",
+           role = c("aut", "cre"),
+           email = "bodhayan@live.com",
+           comment = c(ORCID = "0000-0002-7383-2460"))
+Description: Predicts if a patient will respond to the anti-TNF therapy.
+License: GPL (>=3)
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Imports:
+  readxl,
+  RANN,
+  caret
+Depends: 
+    R (>= 2.10)
+Suggests: 
+    rmarkdown,
+    knitr
+VignetteBuilder: knitr
