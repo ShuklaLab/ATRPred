@@ -15,6 +15,8 @@ devtools::install_github("ShuklaLab/ATRPred")
 
 To update the package just run the `install_github("ShuklaLab/ATRPred")` command again.
 
+## Run
+
 To run the code; please run the following code (input template along with sample inputs are present in examples folder):
 ```
 library("ATRPred")
