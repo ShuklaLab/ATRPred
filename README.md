@@ -4,7 +4,7 @@ A package for predicting whether a Rheumatoid Arthritis patient will respond to 
 
 **Visit us at:** [https://github.com/ShuklaLab/ATRPred](https://github.com/ShuklaLab/ATRPred)
 
-## Installation
+## Installation and Updation
 
 To install the latest version of ATRPred, please follow the steps:
 
@@ -15,7 +15,7 @@ devtools::install_github("ShuklaLab/ATRPred")
 
 To update the package just run the `install_github("ShuklaLab/ATRPred")` command again.
 
-## Run
+## Running the function
 
 To run the code; please run the following code (input template along with sample inputs are present in examples folder):
 ```
