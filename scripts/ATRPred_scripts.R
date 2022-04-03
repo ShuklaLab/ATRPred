@@ -1,12 +1,12 @@
 rm(list=ls())
 
-ra_nice=read.table("ra_tot.txt")
+ra_nice<-read.table("ra_tot.txt")
 hpc <- caret::preProcess(ra_nice[,-c(1,2,7)], method = c("knnImpute","center", "scale"))
 transformed <- predict(hpc, newdata = ra_nice[,-c(1,2,7)])
 View(transformed[,-c(1:4,357:364)])
 pca <- prcomp(transformed[,-c(1:4,357:364)], rank=352)#, center = F,scale. = F)
 summary(pca)
-p=ggplot(transformed, aes(x=pca$x[,2], y=pca$x[,3],size=ra_nice$BLDAS)) +
+ggplot(transformed, aes(x=pca$x[,2], y=pca$x[,3],size=ra_nice$BLDAS)) +
   geom_point(aes(fill=as.factor(ra_nice$male)), shape=21) + #21 to 25 have colour and fill
   #scale_color_manual(values=c("black", "white")) +
   geom_hline(yintercept=0) + 
@@ -16,7 +16,6 @@ p=ggplot(transformed, aes(x=pca$x[,2], y=pca$x[,3],size=ra_nice$BLDAS)) +
   #labs(fill = "Gender") +
   #ggtitle("PCA")+theme(plot.title = element_text(hjust = 0.5))+
   xlab("PC2") + ylab("PC3")
-p
 
 ## Machine Learning
 library(glmnet)
@@ -26,9 +25,9 @@ library(beanplot)
 library(RANN)
 
 # Feature Importance
-getFI=function(data,feature,outcome,n_run=100, div=0.8, frac=0.8) {
-  df=data[c(feature,outcome)]
-  run=list()
+getFI<-function(data,feature,outcome,n_run=100, div=0.8, frac=0.8) {
+  df<-data[c(feature,outcome)]
+  run<-list()
   for(i in 1:n_run) {
     trainIndex <- createDataPartition(df[[outcome]], p = div, list = FALSE)
     Train <- df[trainIndex,]
@@ -50,14 +49,14 @@ getFI=function(data,feature,outcome,n_run=100, div=0.8, frac=0.8) {
       run=append(run,prot)
     }
   }
-  freq=data.frame(table(as.factor(apply(cbind(run), 1, unlist))))[-1,]
+  freq<-data.frame(table(as.factor(apply(cbind(run), 1, unlist))))[-1,]
   #return(freq)
   return(freq[order(freq["Freq"], decreasing = T),])
 }
 set.seed(200)
-fi_lasso=getFI(transformed,features_prot, outcome,500,0.8,1)
-h=fi_lasso$Freq[1:30]
-names(h)=fi_lasso$Var1[1:30]
+fi_lasso<-getFI(transformed,features_prot, outcome,500,0.8,1)
+h<-fi_lasso$Freq[1:30]
+names(h)<-fi_lasso$Var1[1:30]
 barplot(h,las=2,ylab="No. of times protein appeared in the 500 models")
 
 mcc <- function (conf_matrix) {
@@ -322,15 +321,15 @@ calcPerf=function(data,feature,outcome, k=5) {
   return(data.frame(c,auc_train1,auc_test1,acc_train1,acc_test1,se_train1,se_test1,sp_train1,sp_test1,mcc_train1,mcc_test1,auc_train2,auc_test2,acc_train2,acc_test2,se_train2,se_test2,sp_train2,sp_test2,mcc_train2,mcc_test2,auc_train3,auc_test3,acc_train3,acc_test3,se_train3,se_test3,sp_train3,sp_test3,mcc_train3,mcc_test3,auc_train4,auc_test4,acc_train4,acc_test4,se_train4,se_test4,sp_train1,sp_test4,mcc_train4,mcc_test4,auc_train5,auc_test5,acc_train5,acc_test5,se_train5,se_test5,sp_train5,sp_test5,mcc_train5,mcc_test5,auc_train_5f,auc_test_5f,acc_train_5f,acc_test_5f,se_train_5f,se_test_5f,sp_train_5f,sp_test_5f,mcc_train_5f,mcc_test_5f))
 }
 #Running Signature loop
-c=data.frame()
-n=32 #should be greater than 2
+c<-data.frame()
+n<-32 #should be greater than 2
 set.seed(200)
 for(i in 2:n){
-  a=calcPerf(transformed,feat[1:i],outcome)
-  c=rbind(c,a)
+  a<-calcPerf(transformed,feat[1:i],outcome)
+  c<-rbind(c,a)
 }
 
-xdata=0:(nrow(c)-1)
+xdata<-0:(nrow(c)-1)
 
 # plot the first curve by calling plot() function
 # First curve is plotted
@@ -349,7 +348,7 @@ lines(xdata, c$auc_test_5f, col="black",lty=2)
 legend(20, 0.2,col=c("black", "black"), legend=c("Training set", "Test set"), lty=1:2, cex=0.8)
 
 png("es.png")
-p=coef(cvfit, s = "lambda.min")
+p<-coef(cvfit, s = "lambda.min")
 plot(p[-1], xlab="Decreasing Importance", ylab="Effect Size", xlim = c(0,21))
 abline(h=0)
 text(p, row.names(p), cex=0.6, pos=4, col="black", offset=-0.8) 
@@ -415,4 +414,3 @@ for(i in seq(res)){
 legend("topright", legend=c("naive", "approximate", "pseudoinverse"),
        col=COL, lty=LTY, pch=21, bty="n")
 par(op)
-
