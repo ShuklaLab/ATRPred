@@ -17,7 +17,7 @@ To update the package just run the `install_github("ShuklaLab/ATRPred")` command
 
 ## Running the function
 
-To run the code; please run the following code (input template along with sample inputs are present in examples folder):
+To run the ATRPred, please run the following code (input template along with sample inputs are present in examples folder):
 ```
 library("ATRPred")
 antiTNFresponse()
