@@ -1,19 +1,13 @@
 rm(list=ls())
 
-ra_meta=read.table('ra_final.tsv', sep='\t', header = T)
-ra_npx=read.table('ra_npx.tsv', sep='\t', header = T)
-
-library(tidyverse)
-ra=left_join(ra_meta,ra_npx, by='StudyID')
-ra_resp=ra[!is.na(ra$nice),]
-ra_nice=ra_resp[c(10,11,4,7,5,12:363)]
-
-hpc <- caret::preProcess(ra_nice[,-c(1:3,5)], method = c("knnImpute","center", "scale"))
-transformed <- predict(hpc, newdata = ra_nice[,-c(1:3,5)])
-pca <- prcomp(transformed[,-c(1,354:356)], rank=352)#, center = F,scale. = F)
+ra_nice=read.table("ra_tot.txt")
+hpc <- caret::preProcess(ra_nice[,-c(1,2,7)], method = c("knnImpute","center", "scale"))
+transformed <- predict(hpc, newdata = ra_nice[,-c(1,2,7)])
+View(transformed[,-c(1:4,357:364)])
+pca <- prcomp(transformed[,-c(1:4,357:364)], rank=352)#, center = F,scale. = F)
 summary(pca)
-p=ggplot(transformed, aes(x=pca$x[,2], y=pca$x[,3],size=DAS)) +
-  geom_point(aes(fill=Gender), shape=21) + #21 to 25 have colour and fill
+p=ggplot(transformed, aes(x=pca$x[,2], y=pca$x[,3],size=ra_nice$BLDAS)) +
+  geom_point(aes(fill=as.factor(ra_nice$male)), shape=21) + #21 to 25 have colour and fill
   #scale_color_manual(values=c("black", "white")) +
   geom_hline(yintercept=0) + 
   theme_bw()+
@@ -22,7 +16,6 @@ p=ggplot(transformed, aes(x=pca$x[,2], y=pca$x[,3],size=DAS)) +
   #labs(fill = "Gender") +
   #ggtitle("PCA")+theme(plot.title = element_text(hjust = 0.5))+
   xlab("PC2") + ylab("PC3")
-
 p
 
 ## Machine Learning
