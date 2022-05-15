@@ -1,8 +1,19 @@
-# ATRPred: Anti-TNF Treatment Response Predictor
+# ATRPred: <ins>A</ins>nti-TNF <ins>T</ins>reatment <ins>R</ins>esponse <ins>Pred</ins>ictor
 
 A package for predicting whether a Rheumatoid Arthritis patient will respond to anti-TNF treatment.
 
-**Visit us at:** [https://github.com/ShuklaLab/ATRPred](https://github.com/ShuklaLab/ATRPred)
+**Visit us at:** [Shukla Lab](https://shuklalab.github.io/)
+
+![GitHub](https://img.shields.io/github/license/ShuklaLab/ATRPred)
+![GitHub R package version](https://img.shields.io/github/r-package/v/ShuklaLab/ATRPred)
+
+## Requirements
+
+ATRPred was coded in R v3.6, and require a couple of packages (`caret` and `RANN`) to be pre-installed, which can be installed as below:
+
+```
+install.packages(c("caret","RANN"))
+```
 
 ## Installation and Updation
 
@@ -13,7 +24,7 @@ install.packages("devtools")
 devtools::install_github("ShuklaLab/ATRPred")
 ```
 
-To update the package just run the `install_github("ShuklaLab/ATRPred")` command again.
+To update the package just run the same command again.
 
 ## Running the function
 
@@ -28,3 +39,9 @@ Or directly, by typing:
 ```
 ATRPred::antiTNFresponse()
 ```
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
