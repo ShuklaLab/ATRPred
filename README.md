@@ -45,3 +45,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
+
+
+## Publication
+[Prasad B, McGeough C, Eakin A, Ahmed T, Small D, Gardiner P, Pendleton A, Wright G, Bjourson AJ, Gibson DS, Shukla P. ATRPred: A machine learning based tool for clinical decision making of anti-TNF treatment in rheumatoid arthritis patients. PLoS Comput Biol. 2022 Jul 5;18(7):e1010204. doi: 10.1371/journal.pcbi.1010204. Epub ahead of print. PMID: 35788746.](https://doi.org/10.1371/journal.pcbi.1010204)
