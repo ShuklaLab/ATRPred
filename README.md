@@ -4,7 +4,7 @@ A package for predicting whether a Rheumatoid Arthritis patient will respond to 
 
 **Visit us at:** [Shukla Lab](https://shuklalab.github.io/)
 
-*Software author/maintainer: [@bodhayan](https://github.com/bodhayan)*
+*Code author/maintainer: [@bodhayan](https://github.com/bodhayan)*
 
 ![GitHub](https://img.shields.io/github/license/ShuklaLab/ATRPred)
 ![GitHub R package version](https://img.shields.io/github/r-package/v/ShuklaLab/ATRPred)
