@@ -2,9 +2,9 @@
 
 A package for predicting whether a Rheumatoid Arthritis patient will respond to anti-TNF treatment.
 
-**Visit us at:** [Shukla Lab](https://shuklalab.github.io/)
-
 *Code author/maintainer: [@bodhayan](https://github.com/bodhayan)*
+
+**Visit us at:** [Shukla Lab](https://shuklalab.github.io/)
 
 ![GitHub](https://img.shields.io/github/license/ShuklaLab/ATRPred)
 ![GitHub R package version](https://img.shields.io/github/r-package/v/ShuklaLab/ATRPred)
