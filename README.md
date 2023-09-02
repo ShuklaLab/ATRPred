@@ -48,7 +48,7 @@ ATRPred::antiTNFresponse()
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## Publication
-If you're using our tool and/or dataset, please cite:
+If you're using ATRPred, please cite:
 
 [Prasad B, McGeough C, Eakin A, Ahmed T, Small D, Gardiner P, Pendleton A, Wright G, Bjourson AJ, Gibson DS, Shukla P. ATRPred: A machine learning based tool for clinical decision making of anti-TNF treatment in rheumatoid arthritis patients. PLoS Comput Biol. 2022 Jul 5;18(7):e1010204. doi: 10.1371/journal.pcbi.1010204. PMID: 35788746; PMCID: PMC9321399.](https://doi.org/10.1371/journal.pcbi.1010204)
 ***
