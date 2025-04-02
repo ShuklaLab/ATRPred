@@ -2,7 +2,7 @@
 
 A package for predicting whether a Rheumatoid Arthritis patient will respond to anti-TNF treatment.
 
-*Code author/maintainer: [@bodhayan](https://github.com/bodhayan)*
+*Code author and maintainer: [@bodhayan](https://github.com/bodhayan)*
 
 **Visit us at:** [Shukla Lab](https://shuklalab.github.io/)
 
